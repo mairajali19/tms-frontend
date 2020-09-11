@@ -1,5 +1,6 @@
 import React from "react";
-import Navigation from "./components/Navigation";
+// import Navigation from "./components/Navigation";
+import Navigation from "./components/Config/Navigation";
 import "./App.css";
 import { PinProvider } from "./components/Context";
 

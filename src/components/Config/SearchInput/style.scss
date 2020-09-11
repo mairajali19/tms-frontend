@@ -1,0 +1,23 @@
+//@import '../../scss/variables';
+
+.search-input-style {
+  span.ant-input-suffix {
+    z-index: 0;
+    color:#6b7a97;
+    font-weight: bold;
+  }
+  //width: 200px;
+  .ant-input-search-icon{
+    color: rgba(0,0,0,255);
+  }
+  input.ant-input {
+    background-color: var(--inputBgColor);
+    &:focus{
+      border: 1px solid var(--onFocusBorderColor);
+      box-shadow:0 0 0 2px var(--onFocusBorderShadow);
+    }
+    &:hover{
+      border: 1px solid var(--onFocusBorderColor) !important;
+    }
+  }
+}

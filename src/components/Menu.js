@@ -7,6 +7,7 @@ import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
 import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import ReceiptIcon from "@material-ui/icons/Receipt";
+import { Link } from 'react-router-dom'
 import "./components.css";
 import { pinContext } from './Context';
 
@@ -19,12 +20,10 @@ const MyMenu = () => {
 
   return (
     <>
-      <br />
-      <br />
       <Menu
-        style={{ width: 300 }}
+        style={{ width: 300, height: 630 }}
         mode="vertical"
-        theme="light"
+        theme="dark"
         triggerSubMenuAction="click"
       >
         {/* Transaction */}
@@ -62,12 +61,12 @@ const MyMenu = () => {
         {/* Master Data */}
         <SubMenu
           popupClassName={pin ? 'pinned-menu' : 'unpinned-menu'}
-          className="menu-items"
+          className="submenu-items"
           icon={<LocalAtmIcon fontSize="large" />}
           title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Master Data"
         >
           <SubMenu title="General">
-            <Menu.Item>User</Menu.Item>
+            <Menu.Item><Link to="/general/user">User</Link></Menu.Item>
           </SubMenu>
           <SubMenu title="Currency">
             <Menu.Item>Currencies</Menu.Item>

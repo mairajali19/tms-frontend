@@ -1,0 +1,19 @@
+
+
+.btn{
+    background-color:  transparent !important;  
+    color: blue !important;
+    border : none !important ;
+    
+}
+
+.main{
+    display: flex;
+    direction: row;
+    background-color: #e9ecef;  
+}
+
+.main button{
+    border: none;
+    
+}

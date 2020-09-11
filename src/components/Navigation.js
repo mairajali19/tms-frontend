@@ -23,6 +23,7 @@ import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
 import FullscreenExitIcon from "@material-ui/icons/FullscreenExit";
 import "./components.css";
 import Popover from "@material-ui/core/Popover";
+import { Link } from 'react-router-dom'
 
 const drawerWidth = 301;
 const IconDrawerWidth = 70;
@@ -124,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
@@ -296,9 +297,9 @@ export default function Navigation() {
                   }}
                 >
                   <div className="account-popper">
-                    <h4>User Settings</h4>
+                    <p><Link to='/usersettings'>User Settings</Link></p>
                     <br />
-                    <h4>Logout</h4>
+                    <p>Logout</p>
                   </div>
                 </Popover>
 
