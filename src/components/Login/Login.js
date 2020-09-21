@@ -39,7 +39,7 @@ class SignIn extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: "",
+            username: "",
             password: "",
             formErrors: {},
             login: false,
@@ -47,20 +47,20 @@ class SignIn extends Component {
         this.login = this.login.bind(this);
     }
     validateForm() {
-        const { email, password } = this.state
+        const { username, password } = this.state
         let formErrors = {}
         let formIsValid = true;
-        if (!email) {
+        if (!username) {
             formIsValid = false;
-            formErrors["emailErr"] = "Please enter your email address";
+            formErrors["usernameErr"] = "Please enter your username address";
         }
 
-        if (typeof email !== "undefined") {
-            //regular expression for email validation
+        if (typeof username !== "undefined") {
+            //regular expression for username validation
             var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-            if (!pattern.test(email)) {
+            if (!pattern.test(username)) {
                 formIsValid = false;
-                formErrors["emailErr"] = "Please enter valid email.";
+                formErrors["usernameErr"] = "Please enter valid username.";
             }
         }
         if (!password) {
@@ -82,7 +82,7 @@ class SignIn extends Component {
         if (this.validateForm()) {
             this.props.history.push("/home")
         }
-        //         const { email, password } = this.state
+        //         const { username, password } = this.state
         //         const rawResponse = await fetch('https://online-auction-system.herokuapp.com/users/login', {
         //             method: 'POST',
         //             headers: {
@@ -90,7 +90,7 @@ class SignIn extends Component {
         //                 'Content-Type': 'application/json'
         //             },
         //             body: JSON.stringify({
-        //                 email,
+        //                 username,
         //                 password,
         //             })
         //         });
@@ -105,7 +105,7 @@ class SignIn extends Component {
         //     }).then(() => {
         //         this.setState({
         //             fullName: "",
-        //             email: "",
+        //             username: "",
         //             password: ""
         //         })
         //     })
@@ -130,20 +130,22 @@ class SignIn extends Component {
                         Sign in
         </Typography>
                     <div className={classes.form}>
+                        <label style={{ fontWeight: 'bold', color: 'rgb(24,77,121)' }}>Username</label>
                         <TextField
                             variant="outlined"
                             margin="normal"
                             required
                             fullWidth
-                            onChange={(e) => { this.setState({ email: e.target.value }) }}
-                            value={this.state.email}
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            onChange={(e) => { this.setState({ username: e.target.value }) }}
+                            value={this.state.username}
+                            id="username"
+                            label="Username"
+                            name="username"
+                            autoComplete="username"
                             autoFocus
                         />
-                        <div className={classes.errorMsg}>{this.state.formErrors.emailErr}</div>
+                        <div className={classes.errorMsg}>{this.state.formErrors.usernameErr}</div>
+                        <label style={{ fontWeight: 'bold', color: 'rgb(24,77,121)' }}>Password</label>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -158,6 +160,19 @@ class SignIn extends Component {
                             autoComplete="current-password"
                         />
                         <div className={classes.errorMsg}>{this.state.formErrors.passErr}</div>
+                        <Grid container>
+                            <Grid item>
+                                <Checkbox
+                                    color="primary"
+                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                />Remember Me
+                                <span style={{marginLeft:150}}>
+                                    <Link href="#" variant="body2">
+                                        {"Forget Password"}
+                                    </Link>
+                                </span>
+                            </Grid>
+                        </Grid>
                         <Button
                             type="submit"
                             fullWidth
@@ -168,13 +183,6 @@ class SignIn extends Component {
                         >
                             Sign In
           </Button>
-                        <Grid container>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Forget Password"}
-                                </Link>
-                            </Grid>
-                        </Grid>
                     </div>
                 </div>
             </Container>

@@ -3,7 +3,7 @@ import Breadcrumbs from '../BreadCrumbs/Breadcrumbs'
 import Dropdowns from '../Dropdown/Dropdown'
 import Paginations from '../Pagination/Pagination'
 import Tables from '../TableComponent/table'
-// import Header from './Components/Header/Header'
+import Header from '../Header/Header'
 import Tabs from '../Tab/Tab'
 // import ListHeader from '../ListHeader
 import Navigation from '../Navigation'
@@ -124,8 +124,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <Header /> */}
-        <Navigation /><br/>
+        <Navigation /><br /><br /><br /><br />
+        <Header /><br />
         <Breadcrumbs item='Users' />
 
         <Dropdowns />
@@ -133,9 +133,9 @@ class App extends Component {
 
 
 
-        <Container fluid>
+        {/* <Container fluid>
           <Tabs />
-        </Container>
+        </Container> */}
 
         <br />
         <Container fluid >

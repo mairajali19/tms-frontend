@@ -1,9 +1,11 @@
 import React from 'react'
 import BootstrapTable from "react-bootstrap-table-next";
 import { Container, Button, Row, Col } from "reactstrap";
-import ToolkitProvider, {Search } from "react-bootstrap-table2-toolkit";
+import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator"
-
+import './table.css'
+import { DownloadImage } from '../../assets/download.png';
+import Modals from './modal'
 const { SearchBar } = Search;
 
 const columns = [
@@ -39,6 +41,18 @@ const defaultSorted = [
     },
 ];
 
+const options = {
+    sizePerPageList: [{
+        text: '5', value: 5
+    }, {
+        text: '10', value: 10
+    }, {
+        text: '15', value: 15
+    }, {
+        text: '20', value: 20
+    }]
+}
+
 const TableComponent = (props) => {
     return (
         <Container>
@@ -53,10 +67,14 @@ const TableComponent = (props) => {
                 {
                     (props) => (
                         <div>
+                            {/* <div className="div-icon"> */}
+                            {/* <img src={DownloadImage}  className='download-icon'/> */}
+                            {/* </div> */}
+                            <Modals buttonLabel='exp' table={<BootstrapTable {...props.baseProps} />} change-btn-color={true} modalHeader='Add Filter' search={true} />
                             <div className="float-right">
                                 <SearchBar {...props.searchProps} placeholder="Search .." />
                             </div>
-                            <BootstrapTable {...props.baseProps} pagination={paginationFactory()} />
+                            <BootstrapTable {...props.baseProps} pagination={paginationFactory(options)} />
                         </div>
                     )
                 }

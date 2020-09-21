@@ -55,7 +55,7 @@ const Tabs = (props) => {
         <Label >Access Permission</Label>
         <br/>
         <Label check>
-          <Input type="checkbox" />{' '}
+          <Input type="radio" name="property"/>{' '}
           Public
         </Label>
         <p>Anyone can use the view</p>
@@ -67,7 +67,7 @@ const Tabs = (props) => {
         <Label >Access Permission</Label>
         <br/>
         <Label check>
-          <Input type="checkbox" />{' '}
+          <Input type="radio" name="property"/>{' '}
           Public
         </Label>
         <p>Anyone can use the view</p>
@@ -77,7 +77,7 @@ const Tabs = (props) => {
             <Col xs="3 text-center mt-4">
             <FormGroup>
         <Label check>
-          <Input type="checkbox" />{' '}
+          <Input type="radio" name="property"/>{' '}
           Specific Persons
         </Label>
         <p>Only show to selected</p>
